@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Notes-app</title>
+  </head>
+  <body>
+    <h1>Notes App</h1>
+    <h3>Take notes and never forget</h3>
+    <input id="filter-notes" type="text" placeholder="filter notes" />
+    <select id="filter-by">
+      <option value="edit">sort by last edited</option>
+      <option value="create">sort by recently created</option>
+      <option value="alphabet"> sort alphabetically</option>
+    </select>
+    <div id="notes-box"></div>
+
+    <form>
+      <input type="text" name="note" placeholder="write your note" />
+      <button id="add-note" type="submit">Add Note</button>
+    </form>
+
+    <script src="notes-functions.js"></script>
+    <script src="validation.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
