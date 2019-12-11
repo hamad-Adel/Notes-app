@@ -1,9 +1,3 @@
-// let notes = [];
-// const savedNotes = localStorage.getItem("notes");
-// if (savedNotes) {
-//   notes = JSON.parse(savedNotes);
-// }
-
 const getSavedNotes = () =>
   localStorage.getItem("notes")
     ? JSON.parse(localStorage.getItem("notes"))
@@ -17,11 +11,17 @@ const saveNote = note => {
 };
 
 // Generate the DOM structure for a note and append it
-const generateNoteDomAndAppend = (note, appendTo) => {
-  const noteElement = document.createElement("p");
+const generateNoteDOM = (note, appendTo) => {
+  const notesDiv = document.createElement("div");
+  const noteElement = document.createElement("span");
+  const button = document.createElement("button");
+
+  button.textContent = "X";
   noteElement.textContent = note.title;
-  noteElement.classList.add("note");
-  document.querySelector(appendTo).appendChild(noteElement);
+  notesDiv.appendChild(noteElement);
+  notesDiv.appendChild(button);
+
+  document.querySelector(appendTo).appendChild(notesDiv);
 };
 
 // render my notes
@@ -32,5 +32,5 @@ const renderNotes = (notes, filters) => {
   // clear the notes-box div
   document.querySelector("#notes-box").innerHTML = "";
   // rendered notes to the DOM
-  renderedNotes.forEach(note => generateNoteDomAndAppend(note, "#notes-box"));
+  renderedNotes.forEach(note => generateNoteDOM(note, "#notes-box"));
 };
